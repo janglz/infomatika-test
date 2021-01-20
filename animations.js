@@ -44,7 +44,7 @@ const moveList = (hexStep) =>  {
             elem.style.transform = `scale(.7) translate(${x*1.15}%,${-x/1.4}%)`;
         }
         if (i > centerHex - hexStep + 2 || i < centerHex - hexStep - 2 ) {
-        
+
             //elem.style.opacity = `0`
             elem.classList.remove('visible');
             } else {
