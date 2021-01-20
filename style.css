@@ -1,0 +1,164 @@
+ {
+    border: 1px dotted red;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+/*@font-face {
+    font-family: 'Roboto Condensed'; /* Имя шрифта * /
+    src: url(fonts/pompadur.ttf); /* Путь к файлу со шрифтом * /
+   }*/
+
+p, a, span, .date, h2 {
+    font-family: 'Roboto Condensed' !important;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+h2{
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: rgb(2, 9, 35);
+}
+.main{
+    background: rgb(2, 9, 35);
+}
+.main::after{
+    content: "";
+    position: absolute;
+    margin: 0;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    height: 60rem;
+    width: 60rem;
+    background: radial-gradient(30rem, rgb(73, 77, 124), rgb(2, 9, 35))
+}
+.box {
+    padding: 0;
+    margin: 0 auto;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.7s ease;
+}
+.box::before {
+    content: "";
+    position: absolute;
+    height: 30rem;
+    width: 30rem;
+    margin: 0;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    border: 1px solid rgb(138, 140, 172);
+    border-radius: 50%;
+    z-index: 2;
+}
+.box::after {
+    content: "";
+    position: absolute;
+    height: 50rem;
+    width: 50rem;
+    margin: 0;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    border: 1px solid rgb(138, 140, 172);
+    border-radius: 50%;
+    z-index: 1;
+    
+}
+.clip-path-container {
+    height: 100%;
+    width: 100%;
+
+}
+svg{
+    height: 100%;
+    width: 100%;  
+}
+path{
+    fill:inherit;
+    stroke:inherit;
+    height: 100%;
+    width: 100%;
+    transform: scale(1.55);
+}
+.hex {
+    overflow: hidden;
+    width: 11.5rem;
+    height: 10rem;
+    background: white;
+    margin: 0px;
+    position: absolute;
+    display: inline-block;
+    transition: all 0.7s ease;
+    cursor: pointer;
+    opacity: 0;
+    clip-path: url(#hexMask);
+    z-index: 10;
+}
+/*.hex::before {
+    content: "";
+    padding-top: 100%;
+    position: absolute;
+    clip-path: ellipse(100px 45px at 110px);
+}*/
+.info-in-hex {
+    opacity: 0;
+    transition: all 0.6s ease;
+    text-align: center;
+}
+.info-in-hex>h2{
+    text-transform: uppercase;
+    margin-top: -0.2rem;
+    margin-bottom: -0.2rem;
+}
+.info-in-hex>p{
+    text-overflow: ellipsis;
+    height: 1rem;
+    margin: 1rem 2rem 0.9rem 2rem;
+    max-width: 7rem;
+}
+.info-in-hex>a{
+    margin-top: 1rem;
+    transition: all 0.3s;
+    border: 1px solid rgb(138, 140, 172);
+    border-radius: 3px;
+    padding: 4px;
+    color: black;
+    text-decoration: none;
+    font-weight: 300;
+}
+.info-in-hex>a:hover{
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(138, 140, 172,0.5);
+}
+.info-in-hex>a:active{
+    transition: all 0.3s;
+    background: rgba(138, 140, 172,0.5);
+}
+.date{
+    transition: all 0.6s linear;
+    opacity: 0;
+    position: absolute;
+    margin: 0;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+.visible{
+    transition: all 0.6s linear;
+    opacity: 1; 
+}
