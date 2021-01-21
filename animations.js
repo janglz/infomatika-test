@@ -5,14 +5,14 @@
 //     team1: , 
 //     team2: ,
 // };
-  
-//import matchesTimetable from 'timetable.json';
+import { matchesTimetable } from './timetable.js';
+//var matchesTimetable = require('./timetable.js').matchesTimetable;
 
-fetch('./timetable.json')
-  .then(response => response.json())
-  .then(obj => console.log(obj))
+// fetch('./timetable.json')
+//   .then(response => response.json())
+//   .then(obj => console.log(obj))
 
-//console.log(matchesTimetable);
+console.log(matchesTimetable);
 
 const box = document.querySelector('.box')
 const hexCollection = document.querySelectorAll('.hex');
@@ -20,7 +20,7 @@ const hexArray = Array.prototype.slice.call(hexCollection);
 const numOfHexes = hexArray.length;
 let centerHex = Math.floor(numOfHexes / 2); //округляется в меньшую сторону - на случай нечетного количества
 
-const hexSize = 100;
+//const hexSize = 100;
 const hexDistance = (numOfHexes - centerHex) / 100 ; //%
 let hexStep = 0;
 
@@ -61,15 +61,15 @@ const moveList = (hexStep) =>  {
     } 
 };
 
-const showInfoInHex = (elem) => {
-  const infoInHex = elem.querySelector('.info-in-hex');
-  if (infoInHex) infoInHex.classList.add('visible');
-};
+// const showInfoInHex = (elem) => {
+//   const infoInHex = elem.querySelector('.info-in-hex');
+//   if (infoInHex) infoInHex.classList.add('visible');
+// };
 
-const hideInfoInHex = (elem) => {
-  const infoInHex = elem.querySelector('.info-in-hex');
-  if (infoInHex) infoInHex.classList.remove('visible');
-};
+// const hideInfoInHex = (elem) => {
+//   const infoInHex = elem.querySelector('.info-in-hex');
+//   if (infoInHex) infoInHex.classList.remove('visible');
+// };
 
 moveList(0); //стартовый вызов
 
