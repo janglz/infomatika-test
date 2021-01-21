@@ -1,10 +1,18 @@
 "use strict";
-const matchesTimetable = {
-    timestamp: , 
-    stadium: , 
-    team1: , 
-    team2: ,
-};
+// const matchesTimetable = {
+//     timestamp: "", 
+//     stadium: , 
+//     team1: , 
+//     team2: ,
+// };
+  
+//import matchesTimetable from 'timetable.json';
+
+fetch('./timetable.json')
+  .then(response => response.json())
+  .then(obj => console.log(obj))
+
+//console.log(matchesTimetable);
 
 const box = document.querySelector('.box')
 const hexCollection = document.querySelectorAll('.hex');
@@ -22,8 +30,7 @@ const moveList = (hexStep) =>  {
         let elem = hexCollection[i];
         const infoInHex = elem.querySelector('.info-in-hex');
         const dateInHex = elem.firstElementChild;
-        //infoInHex.style.opacity = `0`;
-        //dateInHex.style.opacity = `1`;
+        
         infoInHex.classList.remove('visible');
         dateInHex.classList.add('visible');
         
@@ -45,10 +52,10 @@ const moveList = (hexStep) =>  {
         }
         if (i > centerHex - hexStep + 2 || i < centerHex - hexStep - 2 ) {
 
-            //elem.style.opacity = `0`
+
             elem.classList.remove('visible');
             } else {
-            //elem.style.opacity = `1`
+
             elem.classList.add('visible');
         }
     } 
