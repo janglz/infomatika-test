@@ -166,12 +166,15 @@ box.addEventListener('wheel', (e) => {
 });
 
 box.addEventListener('touchmove', (e) => {
-    let delta = e.deltaY || e.detail || e.wheelDelta;
+    let delta = e.originalEvent.touches[0].clientY;
     if (delta !==0 && flag) { 
       e.preventDefault();
       e.stopPropagation();
       mouseWheelHandler(e); 
     };
+
+
+
     flag = false;
     setTimeout(function(){flag = true}, 1100);
   });
