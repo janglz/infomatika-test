@@ -49,6 +49,23 @@ body {
     align-items: center;
     transition: all 0.7s ease;
 }
+.event {
+    position: absolute;
+    margin: 0;
+    top:50%;
+    left:50%;
+    transform:translate(-5.8rem, -5rem); /*откуда это хз*/
+    z-index: 20;
+    list-style-type: none;
+}
+.event > p {
+    position: absolute;
+    margin: 0;
+    top:50%;
+    left:50%;
+    transform:translate(-5rem, -5rem);
+    z-index: 20;
+}
 .box::before {
     content: "";
     position: absolute;
@@ -79,18 +96,19 @@ body {
 .clip-path-container {
     height: 100%;
     width: 100%;
-
+ 
 }
 svg{
     height: 100%;
-    width: 100%;  
+    width: 100%; 
+     
 }
 path{
     fill:inherit;
     stroke:inherit;
     height: 100%;
     width: 100%;
-    transform: scale(1.55);
+    transform: scale(1.53);
 }
 .hex {
     overflow: hidden;
@@ -119,18 +137,26 @@ path{
 }
 .info-in-hex>h2{
     text-transform: uppercase;
-    margin-top: -0.2rem;
+    margin-top: 1rem;
     margin-bottom: -0.2rem;
+    font-size: 1.4rem;
+    font-weight: 400;
 }
 .info-in-hex>p{
     text-overflow: ellipsis;
     height: 1rem;
-    margin: 1rem 2rem 0.9rem 2rem;
+    
     max-width: 7rem;
+}
+.stadium {
+    margin: 1.4rem auto 0.9rem auto;
+}
+.time {
+    margin: 0.5rem auto 0.9rem auto;
 }
 .info-in-hex>a{
     margin-top: 1rem;
-    transition: all 0.3s;
+    transition: all 0.5s;
     border: 1px solid rgb(138, 140, 172);
     border-radius: 3px;
     padding: 4px;
@@ -139,15 +165,15 @@ path{
     font-weight: 300;
 }
 .info-in-hex>a:hover{
-    transition: all 0.3s;
+    transition: all 0.5s;
     box-shadow: 0 0 10px rgba(138, 140, 172,0.5);
 }
 .info-in-hex>a:active{
-    transition: all 0.3s;
+    transition: all 0.5s;
     background: rgba(138, 140, 172,0.5);
 }
-.date{
-    transition: all 0.6s linear;
+.date-unactive{
+    transition: all 0.4s linear;
     opacity: 0;
     position: absolute;
     margin: 0;
@@ -159,6 +185,6 @@ path{
     font-weight: 400;
 }
 .visible{
-    transition: all 0.6s linear;
+    transition: all 0.4s linear;
     opacity: 1; 
 }
