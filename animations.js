@@ -32,8 +32,8 @@ const matchesTimetable = [{
 {
     "timestamp": "2022-08-25T18:30:00", 
     "stadium": "Стадион Им. Ленина", 
-    "team1": "К. Роналду", 
-    "team2": "Спартак",
+    "team1": "ЦСКА", 
+    "team2": "NY Yankees",
     "url": "https://github.com/janglz"
 },
 {
@@ -100,14 +100,12 @@ const moveList = (hexStep) =>  {
         const eventMonth = months[(timestamp.slice(5, 7)-1)];
         const eventDate = removeFirstZero(timestamp.slice(8, 10));
 
-        //вставка значений
-        stadium.insertAdjacentHTML('afterbegin', `${matchesTimetable[i].stadium}`);
-        activeHexDate.innerHTML = `${eventDate}<br>${eventMonth}`;
+       
+        //вставка значений 
+       
         time.innerHTML = ``;
         team_1.innerHTML= ``;
         team_2.innerHTML  = ``;
-        team_1.innerHTML= ``;
-        team_2.innerHTML = ``;
         stadium.innerHTML = ``;
         activeHexDate.innerHTML = ``;
         time.innerHTML = ``;
@@ -120,8 +118,8 @@ const moveList = (hexStep) =>  {
             elem.style.transform = `scale(1.4) translate(${x}%,${-x/2}%)`;
             infoInHex.classList.add('visible');
             dateInHex.classList.remove('visible');
-            team_1.innerHTML= `${matchesTimetable[i].team1}`;
-            team_2.innerHTML = `${matchesTimetable[i].team2}`;
+            team_1.innerHTML= `<p>${matchesTimetable[i].team1}</p>`;
+            team_2.innerHTML = `<p>${matchesTimetable[i].team2}</p>`;
             stadium.innerHTML = `${shortenString(matchesTimetable[i].stadium)}`;
             activeHexDate.innerHTML = `${eventDate} ${eventMonth}`;
             time.innerHTML = `${timestamp.slice(-8, -3)}`;
