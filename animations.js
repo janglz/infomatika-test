@@ -90,6 +90,7 @@ const moveList = (hexStep) =>  {
         dateInHex.classList.add('visible');
         
         // Вытягивание инфы из массива в гексы
+        //debugger;
         const team_1 = eventListNode[i].querySelector('.team-1');
         const team_2 = eventListNode[i].querySelector('.team-2');
         const stadium = infoInHex.querySelector('.stadium');
@@ -112,10 +113,11 @@ const moveList = (hexStep) =>  {
         href.href = ``;
         dateInHex.innerHTML = `${eventDate}<br>${eventMonth.toLowerCase()}`;
         // Позиционирование гексов
-        let x = ((i + hexStep) * 20 - 60) * 6;
-        elem.style.transform = `translate(${x*0.9}%,${-x/1.8}%)`;
+        //let x = ((i + hexStep) * 20 - 60) * 6 ;
+        let x = ((i + hexStep) * 20 - 60) * 6 + 60;
+        elem.style.transform = `translate(${x / 1.2}%,${-x / 1.6 - 10}%)`;
         if (i == centerHex  - hexStep) {
-            elem.style.transform = `scale(1.4) translate(${x}%,${-x/2}%)`;
+            elem.style.transform = `scale(1.4) translate(${x / 1.7}%,${-x / 1.8}%)`;
             infoInHex.classList.add('visible');
             dateInHex.classList.remove('visible');
             team_1.innerHTML= `<p>${matchesTimetable[i].team1}</p>`;
@@ -125,7 +127,7 @@ const moveList = (hexStep) =>  {
             time.innerHTML = `${timestamp.slice(-8, -3)}`;
             href.href = `${matchesTimetable[i].url}`;
         } else if (i > centerHex - hexStep + 1 || i < centerHex - hexStep - 1 ) {
-            elem.style.transform = `scale(.7) translate(${x*1.15}%,${-x/1.4}%)`;
+            elem.style.transform = `scale(.7) translate(${x * 1.1 + 10}%,${-x / 1.25 - 20}%)`;
         }
         if (i > centerHex - hexStep + 2 || i < centerHex - hexStep - 2 ) {
             elem.classList.remove('visible');
@@ -141,7 +143,7 @@ moveList(0); //стартовый вызов
 const mouseWheelHandler = (e) => {
   if (e.deltaY > 0) {
     hexStep -= 1;
-    if (hexStep <= - (centerHex + 1)) { hexStep = (-centerHex) + 1}
+    if (hexStep <= - (centerHex )) { hexStep = (-centerHex) + 1}
   }
   if (e.deltaY < 0) {
     hexStep += 1;
@@ -163,21 +165,56 @@ box.addEventListener('wheel', (e) => {
   setTimeout(function(){flag = true}, 1100);
 });
 
-box.addEventListener('touchmove', (e) => {
-    let delta = e.originalEvent.touches[0].clientY;
-    if (delta !==0 && flag) { 
-      e.preventDefault();
-      e.stopPropagation();
-      mouseWheelHandler(e); 
-    };
-
-
-
-    flag = false;
-    setTimeout(function(){flag = true}, 1100);
-  });
-
 for (let num of hexArray) {
   let hexIndex = -(hexArray.indexOf(num) - centerHex );
   num.addEventListener('click', ()=>moveList(hexIndex));
 }
+
+//Свайп
+box.addEventListener('touchstart', handleTouchStart, false);        
+box.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;                                                        
+var yDown = null;                                                        
+
+function handleTouchStart(evt) {                                         
+    xDown = evt.touches[0].clientX;                                      
+    yDown = evt.touches[0].clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            /* left swipe */ 
+            hexStep -=1;
+        } else {
+            /* right swipe */
+            hexStep +=1;
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */ 
+            hexStep +=1;
+        } else { 
+            /* down swipe */
+            hexStep -=1;
+        }                                                                 
+    }
+
+    if (hexStep <= - (centerHex )) { hexStep = (-centerHex) + 1};
+    if (hexStep > centerHex) { hexStep = centerHex };
+    moveList(hexStep);
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
