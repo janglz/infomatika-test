@@ -3,7 +3,7 @@
     <head>
         <title>⚽ Билеты тут</title>
         <meta charset="utf-8">
-        <meta name = "viewport" content = "width = device-width">
+        <!--meta name = "viewport" content = "width = device-width"-->
         <!--<link rel="icon" href="favicon.png" type="image/png" sizes="any">
         <link href="Exo2.0-Thin.otf" rel="stylesheet">-->
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
@@ -12,10 +12,17 @@
         <!--<script type="text/javascript" src="timetable.json" class="json"></script>-->
     </head>
     <body>
-    <section class="main">
+    <section class="header">
+        <ul class="top-menu">
+            <li><a href="#">Билеты и абонементы</a></li>
+            <li><a href="#">Как купить?</a></li>
+            <li><a href="#">Правила</a></li>
+            <li><a href="#">Возврат билетов</a></li>
+            <li><a href="#">Войти</a></li>
+        </ul>    
         
-        <ul class="rival_first">
-        </ul>
+    </section>
+    <section class="main">
         <ul class="box">
             <div class="clip-path-container">
             <svg version="1.1"
@@ -40,83 +47,114 @@
                                 A12,12 0 0,1 38,2' />
                     </clipPath> 
                 </defs>
-            	
             </svg>
             </div>
-            <li class="hex">
-                <h2 class="date">21<br>мая</h2>
-                <div class="info-in-hex">
-                    <p>Спартак</p>
-                    <h2>Дата</h2>
-                    <p>20:00</p>
-                    <a href="#">Купить билет</a>
-                </div>
-            </li>
-            <li class="hex">
-                <h2 class="date">22<br>мая</h2>
-                <div class="info-in-hex">
-                    <p>Лужники</p>
-                    <h2>22 мая</h2>
-                    <p>19:00</p>
-                    <a href="#">Купить билет</a>
-                </div>
-            </li>
-            <li class="hex">
-                <h2 class="date">27<br>мая</h2>
-                <div class="info-in-hex">
-                    <p>Метеор</p>
-                    <h2>27 мая</h2>
-                    <p>19:00</p>
-                    <a href="#">Купить билет</a>
-                </div>
-            </li>
-            <li class="hex">
-                <h2 class="date">28<br>мая</h2>
-                <div class="info-in-hex">
-                    <p>Лужники</p>
-                    <h2>28 мая</h2>
-                    <p>18:00</p>
-                    <a href="#">Купить билет</a>
-                </div>
-            </li>
-            <li class="hex">
-                <h2 class="date">2<br>июня</h2>
-                <div class="info-in-hex">
-                    <p>Спартак</p>
-                    <h2>2 июня</h2>
-                    <p>19:00</p>
-                    <a href="#">Купить билет</a>
-                </div>
-            </li>
-            <li class="hex">
-                <h2 class="date">9<br>июня</h2>
-                <div class="info-in-hex">
-                    <p>Стадион им. Ленина</p>
-                    <h2>9 июня</h2>
-                    <p>19:00</p>
-                    <a href="#">Купить билет</a>
-                </div>
-            </li>
-            <li class="hex">
-                <h2 class="date">12<br>июня</h2>
-                <div class="info-in-hex">
-                    <p>Место скрыто</p>
-                    <h2>12 июня</h2>
-                    <p>19:00</p>
-                    <a href="#">Купить билет</a>
-                </div>
-            </li>
-           <!-- <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <svg version="1.1"
+                baseProfile="full"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 800 800" >
                 <defs>
-                      <filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />    
-                          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
-                          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-                      </filter>
-                  </defs>
-              </svg> -->
+                    <clipPath id="firstTeamMask">
+                        <path d='M 335 0 L 46 0 C 36 0 30 4 26 12 L 5 55 C 2 63 7 70 21 70 L 24 70 L 240 70 L 700 70 L 700 0 M 5 -18' 
+                        
+                        />
+                    </clipPath> 
+                </defs>
+            </svg>
+            <svg version="1.1"
+                baseProfile="full"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 800 800" >
+                <defs>
+                    <clipPath id="secondTeamMask">
+                        <path d='M 225 0 L 722 0 C 730 0 730 6 730 8 C 730 10 730 11 728 16 L 707 55 C 701 70 700 70 685 70 L 0 70 L 0 0' />
+                    </clipPath> 
+                </defs>
+            </svg>
+            <li class="event">
+                <div class="team-1"></div>
+                <div class="team-2"></div>
+                <div class="hex">
+                    <h2 class="date-unactive">21<br>мая</h2>
+                    <div class="info-in-hex">
+                        <p class="stadium">Спартак</p>
+                        <h2 class="date">Дата</h2>
+                        <p class="time">20:00</p>
+                        <a class="href-in-hex" href="#">Купить билет</a>
+                    </div>
+                </div>
+            </li>
+            <li class="event">
+                <div class="team-1"></div>
+                <div class="team-2"></div>
+                <div class="hex">
+                    <h2 class="date-unactive"></h2>
+                    <div class="info-in-hex">
+                        <p class="stadium"></p>
+                        <h2 class="date"></h2>
+                        <p class="time"></p>
+                        <a class="href-in-hex" href="#">Купить билет</a>
+                    </div>
+                </div>
+            </li>
+            <li class="event">
+                <div class="team-1"></div>
+                <div class="team-2"></div>
+                <div class="hex">
+                    <h2 class="date-unactive"></h2>
+                    <div class="info-in-hex">
+                        <p class="stadium"></p>
+                        <h2 class="date"></h2>
+                        <p class="time"></p>
+                        <a class="href-in-hex" href="#">Купить билет</a>
+                    </div>
+                </div>
+            </li>
+            <li class="event">
+                <div class="team-1"></div>
+                <div class="team-2"></div>
+                <div class="hex">
+                    <h2 class="date-unactive"></h2>
+                    <div class="info-in-hex">
+                        <p class="stadium"></p>
+                        <h2 class="date"></h2>
+                        <p class="time"></p>
+                        <a class="href-in-hex" href="#">Купить билет</a>
+                    </div>
+                </div>
+            </li>
+            <li class="event">
+                <div class="team-1"></div>
+                <div class="team-2"></div>
+                <div class="hex">
+                    <h2 class="date-unactive"></h2>
+                    <div class="info-in-hex">
+                        <p class="stadium"></p>
+                        <h2 class="date"></h2>
+                        <p class="time"></p>
+                        <a class="href-in-hex" href="#">Купить билет</a>
+                    </div>
+                </div>
+            </li>
+            <li class="event">
+                <div class="team-1"></div>
+                <div class="team-2"></div>
+                <div class="hex">
+                    <h2 class="date-unactive"></h2>
+                    <div class="info-in-hex">
+                        <p class="stadium"></p>
+                        <h2 class="date"></h2>
+                        <p class="time"></p>
+                        <a class="href-in-hex" href="#">Купить билет</a>
+                    </div>
+                </div>
+            </li>
+   
         </ul>
         </section>
         <script src="animations.js"></script>
-        <script src="timeTable.js"></script>
+
     </body>
 </html>

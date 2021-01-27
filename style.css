@@ -1,6 +1,3 @@
- {
-    border: 1px dotted red;
-}
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
 /*@font-face {
     font-family: 'Roboto Condensed'; /* Имя шрифта * /
@@ -18,14 +15,19 @@ h2{
 }
 html,
 body {
-    width: 100%;
-    height: 100%;
     margin: 0 auto;
+    box-sizing: border-box;
     overflow: hidden;
     background: rgb(2, 9, 35);
 }
+svg, .clip-path-container {
+    overflow:hidden;
+}
 .main{
     background: rgb(2, 9, 35);
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 .main::after{
     content: "";
@@ -39,16 +41,19 @@ body {
     background: radial-gradient(30rem, rgb(73, 77, 124), rgb(2, 9, 35))
 }
 .box {
+    width: 100vw;
+    height: 100vh;
     padding: 0;
     margin: 0 auto;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
+    box-sizing: border-box;
+    display: block;
     overflow: hidden;
     justify-content: center;
     align-items: center;
     transition: all 0.7s ease;
+    
 }
+
 .box::before {
     content: "";
     position: absolute;
@@ -61,6 +66,7 @@ body {
     border: 1px solid rgb(138, 140, 172);
     border-radius: 50%;
     z-index: 2;
+    overflow:hidden;
 }
 .box::after {
     content: "";
@@ -74,44 +80,92 @@ body {
     border: 1px solid rgb(138, 140, 172);
     border-radius: 50%;
     z-index: 1;
+    overflow:hidden;
     
 }
-.clip-path-container {
-    height: 100%;
-    width: 100%;
-
-}
-svg{
-    height: 100%;
-    width: 100%;  
+.event {
+    overflow:hidden;
+    display: block;
+    position: absolute;
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    top:0%;
+    left:0%;
+    transform:none; 
+    z-index: auto;
+    list-style-type: none;
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
 }
 path{
+    overflow:hidden;
     fill:inherit;
     stroke:inherit;
-    height: 100%;
-    width: 100%;
-    transform: scale(1.55);
+    transform: scale(1.53);
 }
+.team-1{
+    display: block;
+    overflow:hidden;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(5.8rem, 0rem);
+    z-index: 20;
+    width: 1100px;
+    height: 7rem;
+    clip-path: url(#firstTeamMask);   
+}
+.team-2{
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-76rem, -7rem);
+    z-index: 20;
+    overflow:hidden;
+    width: 1120px;
+    height: 7rem;
+    clip-path: url(#secondTeamMask);   
+}
+.team-1 > p, .team-2 > p {
+    background-color: white;
+    overflow:hidden;
+    align-self: center;
+    z-index: 30;
+    display: block;
+    line-height: 1rem;
+    padding: 3rem;
+    margin: 0 auto;
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;  
+    width: 1025px;
+}
+.team-1 > p {
+    text-align: left;  
+}
+.team-2 > p {
+    text-align: right;   
+}
+
 .hex {
     overflow: hidden;
     width: 11.5rem;
     height: 10rem;
+    top: 50%;
+    right: 50%;
     background: white;
     margin: 0px;
     position: absolute;
     display: inline-block;
-    transition: all 0.7s ease;
+    transition: all 0.7s linear;
     cursor: pointer;
     opacity: 0;
     clip-path: url(#hexMask);
-    z-index: 10;
+    z-index: 70;
 }
-/*.hex::before {
-    content: "";
-    padding-top: 100%;
-    position: absolute;
-    clip-path: ellipse(100px 45px at 110px);
-}*/
 .info-in-hex {
     opacity: 0;
     transition: all 0.6s ease;
@@ -119,46 +173,122 @@ path{
 }
 .info-in-hex>h2{
     text-transform: uppercase;
-    margin-top: -0.2rem;
+    margin-top: 1rem;
     margin-bottom: -0.2rem;
+    font-size: 1.3rem;
+    font-weight: 400;
 }
 .info-in-hex>p{
     text-overflow: ellipsis;
     height: 1rem;
-    margin: 1rem 2rem 0.9rem 2rem;
+    
     max-width: 7rem;
 }
+.stadium {
+    margin: 1.3rem auto 0.9rem auto;
+}
+.time {
+    margin: 0.5rem auto 0.9rem auto;
+}
 .info-in-hex>a{
-    margin-top: 1rem;
-    transition: all 0.3s;
+    margin-top: 0.9rem;
+    transition: all 0.4s ease;
     border: 1px solid rgb(138, 140, 172);
     border-radius: 3px;
     padding: 4px;
     color: black;
     text-decoration: none;
     font-weight: 300;
+    z-index: 90;
+    transform:translate(-50%, -50%);
+    position: absolute;
+    
 }
 .info-in-hex>a:hover{
-    transition: all 0.3s;
+    transition: all 0.5s;
     box-shadow: 0 0 10px rgba(138, 140, 172,0.5);
 }
 .info-in-hex>a:active{
-    transition: all 0.3s;
+    transition: all 0.5s;
     background: rgba(138, 140, 172,0.5);
 }
-.date{
-    transition: all 0.6s linear;
+.date-unactive{
+    transition: all 0.4s linear;
     opacity: 0;
     position: absolute;
     margin: 0;
+    padding: 3rem;
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
     text-align: center;
     font-size: 1.4rem;
     font-weight: 400;
+    z-index: 75;
 }
 .visible{
-    transition: all 0.6s linear;
+    transition: transform 0.4s linear, opacity 0.1s 0.4s linear;
     opacity: 1; 
+}
+.header{
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    width: 100vw;
+}
+.top-menu {
+    margin: 2rem 2rem 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.top-menu li {
+    list-style-type: none;
+    margin-left: -2rem;   
+}
+.top-menu li a {
+    display: block;
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-decoration: none;
+    color: white;
+    z-index: 95;
+    transform:translate(0,0rem);
+    margin: 0 1rem 1rem 1rem;
+}
+.top-menu li:last-child>a{
+    padding: 0 4rem 0 2rem;
+    background: url('login.png') no-repeat 0 50% / 20%, 
+                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px"%3E%3Cpath style="fill:white;" d="M2 11H22V13H2zM2 5H22V7H2zM2 17H22V19H2z"/%3E%3C/svg%3E') no-repeat right 50% / 20%;
+}
+.top-menu li a::before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    background-color: rgba(211, 227, 238, 0.89);
+    transform:translate(0,0rem);
+    transition: all 0s linear;
+    z-index: 90;
+}
+.top-menu li a:hover::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    background-color: rgba(74, 85, 119, 0);
+    transform: scale(1.5);
+    transition: all 0.5s linear;
+    z-index: 90;
+}
+.top-menu li a:hover {
+    text-shadow: #d9f3f3 0 0 10px;
+}
+.top-menu li:last-child>a:hover{
+
+    filter:  drop-shadow(#d9f3f3 0 0 4px);
+    text-shadow: #d9f3f300 0 0 10px;
 }
